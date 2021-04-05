@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<!-- Created By CodingLab - www.codinglabweb.com -->
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <!---<title> Responsive Registration Form | CodingLab </title>--->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Lippo Village | Portal</title>
+    <link rel="icon" href="image/logo-playparc.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+</head>
+
+<body>
+    <script src="js/local-session.js"></script>
+
+    <div class="container-opening">
+        <div class="icon-circle"></div>
+        <h2 class="title-2-lines">SELAMAT DATANG DI PLAY parc!</h2>
+        <p class="description">Bahagiakan keluarga kamu di hunian terbaik millennials. Cepat! Daftarkan sekarang! Jangan lupa kumpulkan poin sebanyak-banyaknya karena berbagai hadiah menarik menantimu!</p>
+        <div class="cover-horizontal-button">
+            <div class="button white" onclick="portalDecission('masuk')">MASUK</div>
+            <div>&nbsp;&nbsp;&nbsp;</div>
+            <div class="button secondary" onclick="portalDecission('daftar')">DAFTAR</div>
+        </div>
+    </div>
+
+    <div class="container-login">
+        <img class="title" src="image/logo-playparc.png">
+        <div class="input-box">
+            <span class="title">Email</span>
+            <input type="email" id="email0" placeholder="contoh: budi.gamer@gmail.com" required onchange="onFieldValueChange('email1', 'email1_warning')">
+            <span class="warning warning-close" id="email0_warning">*salah</span>
+        </div>
+        <div class="input-box">
+            <span class="title">Password</span>
+            <input type="password" id="password0" required onchange="onFieldValueChange('password0', 'password0_warning')"><i class="far fa-eye-slash" id="togglePassword0"></i>
+            <span class="warning warning-close" id="password0_warning">*salah</span>
+        </div>
+        <span class="button-lupa-password" onclick="lupaPassword()">Lupa Password?</span>
+
+        <div class="button-cover">
+            <div class="button primary" onclick="onLogin('email0', 'password0')">MASUK</div>
+        </div>
+
+        <p class="detail-daftar">Belum punya akun? <span class="button-daftar" onclick="showRegistratioinPanel()">Daftar</span></p>
+    </div>
+
+    <div class="container-register">
+        <img class="title" src="image/logo-playparc.png">
+        <div class="form-scroll-rect">
+            <div class="input-box">
+                <span class="title">Nama</span>
+                <input type="text" id="nama" placeholder="contoh: Budi Gamer" required onchange="onFieldValueChange('nama', 'nama_warning')">
+                <span class="warning warning-close" id="nama_warning">*salah</span>
+            </div>
+            <br>
+            <div class="input-box">
+                <span class="title">Username</span>
+                <input type="text" id="username" placeholder="contoh: budigamer " required onchange="onFieldValueChange('username', 'username_warning')">
+                <span class="warning warning-close" id="username_warning">*salah</span>
+            </div>
+            <br>
+            <div class="input-box">
+                <span class="title">Email</span>
+                <input type="email" id="email1" placeholder="contoh: budi.gamer@gmail.com" required onchange="onFieldValueChange('email1', 'email1_warning')">
+                <span class="warning warning-close" id="email1_warning">*salah</span>
+            </div>
+            <br>
+            <div class="input-box">
+                <span class="title">No.HP</span>
+                <input type="number" id="no_hp" placeholder="contoh: 081234321xxx" required onchange="onFieldValueChange('no_hp', 'no_hp_warning')">
+                <span class="warning warning-close" id="no_hp_warning">*salah</span>
+            </div>
+            <br>
+            <div class="input-box">
+                <span class="title">Buat Password</span>
+                <input type="password" id="password1" required onchange="onFieldValueChange('password1', 'password1_warning')"><i class="far fa-eye-slash" id="togglePassword1"></i>
+                <span class="warning warning-close" id="password1_warning">*salah</span>
+            </div>
+            <br>
+            <div class="input-box">
+                <span class="title">Ulangi Password</span>
+                <input type="password" id="password2" required onchange="onFieldValueChange('password2', 'password2_warning')"><i class="far fa-eye-slash" id="togglePassword2"></i>
+                <span class="warning warning-close" id="password2_warning">*salah</span>
+            </div>
+            <br>
+            <div class="input-box">
+                <span class="title">Gender</span>
+                <div class="choose-gender">
+                    <img class="gender1 gender-male-select" src="image/male-button.png" onclick="onChooseGender(0)">
+                    <img class="gender2" src="image/female-button.png" onclick="onChooseGender(1)">
+                </div>
+            </div>
+            <br>
+            <p style="text-align: center; color: gray; font-size: 12px;">*Pastikan data di atas valid untuk keperluan pengiriman hadiah</p>
+            <br>
+        </div>
+
+        <div class="terms-box">
+            <input type="checkbox" name="terms" id="terms">
+            <p>Saya setuju dengan Syarat Ketentuan dan Kebijakan Privasi Lippo Cendana Park yang berlaku</p>
+        </div>
+
+        <span class="warning warning-close" id="checkbox_warning">*salah</span>
+
+        <div class="button-cover">
+            <div class="button primary" onclick="onRegister('nama', 'username', 'no_hp', 'email1', 'password1', 'password2')">DAFTAR</div>
+        </div>
+        <p class="detail-daftar">Sudah punya akun? <span class="button-daftar" onclick="showLoginPanel()">Masuk</span></p>
+    </div>
+
+    <!-- <div class="container-forgotpassword">
+        <h2 class="title-1-line">LUPA PASSWORD</h2>
+        <br>
+        <p class="description">Masukkan email untuk mereset password kamu</p>
+        <br>
+        <div class="input-box">
+            <span class="title">Email</span>
+            <input type="text" id="email3" placeholder="contoh: budi.gamer@gmail.com" required>
+            <span class="warning warning-close">*salah</span>
+        </div>
+        <br>
+        <div class="button-cover">
+            <div class="button primary">RESET PASSWORD</div>
+        </div>
+        <br>
+    </div> -->
+
+    <div class="container-register-success-notif">
+        <h2 class="title-1-line">Selamat! pendaftaran kamu berhasil</h2>
+        <br>
+        <br>
+        <br>
+        <div class="button-cover">
+            <div class="button primary" onclick="masukGame()">MASUK GAME</div>
+        </div>
+        <br>
+    </div>
+
+    <div class="container-forgotpassword-success-notif">
+        <h2 class="title-1-line">EMAIL TERKIRIM</h2>
+        <br>
+        <p class="description">Kami telah mengirimkan email untuk mereset password kamu.</p>
+        <br>
+        <div class="button-cover">
+            <div class="button primary">BUKA LAMAN EMAIL</div>
+        </div>
+        <br>
+    </div>
+
+    <div class="form-loading-cover loading-disable">
+        <div class="lds-ring">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+
+    <script src="js/element-interaction.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>
